@@ -55,6 +55,13 @@ export class AuthService {
     const isValid = await verify(user.password, dto.password);
     if (!isValid) throw new UnauthorizedException("Invalid password");
 
+    if (!user.isVerified) {
+      await this.emailConfirmService.sendVerificationToken(user);
+      throw new UnauthorizedException(
+        "Your account is not verified. Please check your email for the verification link",
+      );
+    }
+
     return this.saveSession(req, user);
   }
 
