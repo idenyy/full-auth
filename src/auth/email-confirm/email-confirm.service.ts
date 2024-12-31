@@ -7,13 +7,12 @@ import {
 } from "@nestjs/common";
 import { PrismaService } from "@/prisma/prisma.service";
 import { v4 as uuid } from "uuid";
-import { $Enums, User } from "@prisma/__generated__";
+import { TokenType, User } from "@prisma/__generated__";
 import { Request } from "express";
 import { ConfirmationDto } from "@/auth/email-confirm/dto/confirmation.dto";
 import { MailService } from "@/libs/mail/mail.service";
 import { UserService } from "@/user/user.service";
 import { AuthService } from "@/auth/auth.service";
-import TokenType = $Enums.TokenType;
 
 @Injectable()
 export class EmailConfirmService {
