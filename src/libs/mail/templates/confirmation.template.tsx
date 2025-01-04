@@ -32,8 +32,8 @@ export function ConfirmationTemplate({
             Confirm
           </Link>
           <Text className="mb-4 text-sm">
-            This link is only active for the next 1 hour. Once the link expires,
-            you will need to request a new one.
+            This link will remain active for the next 30 minutes. Once it
+            expires, you will need to request a new one.
           </Text>
           <Text className="text-gray-500">
             &copy; {new Date().getFullYear()} VETRA. All rights reserved.
