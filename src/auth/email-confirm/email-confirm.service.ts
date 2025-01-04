@@ -7,7 +7,7 @@ import {
 } from "@nestjs/common";
 import { PrismaService } from "@/prisma/prisma.service";
 import { v4 as uuid } from "uuid";
-import { TokenType, User } from "@prisma/__generated__";
+import { TokenType } from "@prisma/__generated__";
 import { Request } from "express";
 import { ConfirmationDto } from "@/auth/email-confirm/dto/confirmation.dto";
 import { MailService } from "@/libs/mail/mail.service";
@@ -66,8 +66,8 @@ export class EmailConfirmService {
     return this.authService.saveSession(req, existingUser);
   }
 
-  public async sendVerificationToken(user: User) {
-    const verificationToken = await this.generateVerificationToken(user.email);
+  public async sendVerificationToken(email: string) {
+    const verificationToken = await this.generateVerificationToken(email);
 
     await this.mailService.sendConfirmationEmail(
       verificationToken.email,

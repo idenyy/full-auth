@@ -9,6 +9,7 @@ import { ProviderModule } from "./provider/provider.module";
 import { EmailConfirmModule } from "@/auth/email-confirm/email-confirm.module";
 import { MailModule } from "@/libs/mail/mail.module";
 import { ResetPasswordModule } from "@/auth/reset-password/reset-password.module";
+import { TwoFactorModule } from "@/auth/two-factor/two-factor.module";
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { ResetPasswordModule } from "@/auth/reset-password/reset-password.module
     MailModule,
     EmailConfirmModule,
     ResetPasswordModule,
+    TwoFactorModule,
   ],
 })
 export class AppModule {}
